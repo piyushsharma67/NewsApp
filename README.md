@@ -1,4 +1,4 @@
-# NewsAppp
+# NewsApp
 
 **Hi welcome to the News App!!**
 
