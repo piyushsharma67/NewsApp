@@ -1,5 +1,8 @@
+// **********importing inistial states***********
+
 import {NewsArticlesInitialState,SelectedNewsArticleInitialState} from './initialState'
 
+//******Reducers for manupalating the Redux States********* */
 
 export const  ArticlesReducer=(state=NewsArticlesInitialState,actions)=>{
     switch (actions.type){

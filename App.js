@@ -1,16 +1,18 @@
+// ---------importing the packages-------
+
 import * as React from 'react'
 import { NavigationContainer } from '@react-navigation/native';
-import {View,Text} from 'react-native'
-import { createStackNavigator } from '@react-navigation/stack';
-import Screens from './src/Navigation/Stack_Naviagtor'
+import Screens from './src/Navigation/Stack_Naviagtor'              
 import { Provider } from 'react-redux'
 import {store} from './src/Redux/store'
 
+// In the App function wrapping the navigation container Inside the Redux Store
+
 function App() {
   return (  
-    <Provider store={store}>
+    <Provider store={store}>           
       <NavigationContainer>       
-        <Screens>
+        <Screens>                       
         </Screens>
       </NavigationContainer> 
     </Provider>

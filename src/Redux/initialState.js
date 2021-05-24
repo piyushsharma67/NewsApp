@@ -1,3 +1,6 @@
+// *******Initial States for the Reducer*********
+
+
 export const NewsArticlesInitialState = {
     data:[],
     isLoaded:false,

@@ -1,7 +1,10 @@
 import { Alert} from 'react-native';
 import axios from 'axios';
+import { NewsArticlesInitialState } from './initialState';
 
-const setData=(data)=>{
+
+
+const setData=(data)=>{                   
     return {
         type:"SET_ARTICLES_DATA",
         payload:data 
@@ -14,6 +17,7 @@ const setSelectedArticle=(Article)=>{
     }
 }
 
+// *************Function to fetch the Articles from the news.org server *****************
 
 export const newsArticles = () => {   
    
@@ -31,25 +35,24 @@ export const newsArticles = () => {
           headers: {'X-Custom-Header': 'foobar', "Content-Type": "application/json"}
         });   
 
-    return (dispatch) => {  // don't forget to use dispatch here!
+    return (dispatch) => {  
       return axios_inst.get('/everything',       
        {params:params}
       )
-      .then((response) => {
-        // console.log("response is",response.status)
-        if (response.status==200) { // response success checking logic could differ
-        //   console.log("articles are",response.data.articles)
+      .then((response) => {        
+        if (response.status==200) {       
           return dispatch(setData(response.data.articles))       
         } else {
           Alert.alert('error', 'error occured');
         }
       })
       .catch((err) => {
-        console.log("err in getting data",err)
-        // return dispatch(setError(err.response.data.message));
+        console.log("err in getting data",err)       
       });
     };
 };
+
+// ************Function to store the selected article info inside the states***************8
 
 export const setSelectedArticleInfo=(Article)=>{
     return (dispatch)=>{
@@ -57,15 +60,3 @@ export const setSelectedArticleInfo=(Article)=>{
         dispatch(setSelectedArticle(Article))
     }
 }
-
-   
-    //     const requestHandler = request => {
-    //     //  console.log("request is",request)
-        
-    //       return request;
-    //   };
-      
-    //   axios_inst.interceptors.request.use(
-    //     (request) => requestHandler(request),
-        
-    //   );
