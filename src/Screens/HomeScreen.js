@@ -30,7 +30,7 @@ const HomeScreen=({data,dispatch,navigation,isSelected,isLoaded})=>{
             dispatch(setSelectedArticleInfo(item))
         }}>      
         <Card>
-            <Card.Image source={{uri:item.urlToImage}}/>              
+            <Card.Image source={{uri:item.urlToImage}}/>       
             <Text style={{marginVertical:10,alignSelf:'center'}}>{item.description}</Text>
         </Card> 
         </TouchableOpacity>      
@@ -47,8 +47,8 @@ const HomeScreen=({data,dispatch,navigation,isSelected,isLoaded})=>{
             <View>
                 <FlatList 
                 data={data}
-                renderItem={renderItem}                                         //******articles are rendered inside the flatlist
-                keyExtractor={(item)=>item.title}
+                renderItem={renderItem}                                         //******articles are rendered inside the flatlist******
+                keyExtractor={(item)=>item.description}
                 showsVerticalScrollIndicator={false}/>
             </View>   
         )
